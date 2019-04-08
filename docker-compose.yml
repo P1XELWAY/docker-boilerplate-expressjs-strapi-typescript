@@ -1,0 +1,43 @@
+version: '3.1'
+services:
+  # ExpressJS application with NodeJS
+  web:
+    build: ./app
+    image: node:11.1.0-alpine-ts
+    ports:
+      - 3000:3000
+      - 9229:9229
+    volumes:
+      - ./app:/app
+  # Strapi API    
+  api:
+    build: ./strapi
+    image: strapi/strapi
+    environment:
+      - APP_NAME=strapi-app
+      - DATABASE_CLIENT=mongo
+      - DATABASE_HOST=db
+      - DATABASE_PORT=27017
+      - DATABASE_NAME=strapi
+      - DATABASE_USERNAME=
+      - DATABASE_PASSWORD=
+      - DATABASE_SSL=false
+      - DATABASE_AUTHENTICATION_DATABASE=strapi
+      - HOST=localhost
+    ports:
+      - 1337:1337
+    volumes:
+      - ./strapi-app:/usr/src/api/strapi-app
+    depends_on:
+      - db
+    restart: always
+  # Mongo DB for Strapi backend
+  db:
+    image: mongo
+    environment:
+      - MONGO_INITDB_DATABASE=strapi
+    ports:
+      - 27017:27017
+    volumes:
+      - ./db:/data/db
+    restart: always

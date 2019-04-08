@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "allowJs": true,
+        "checkJs": true,
+        "pretty": true,
+        "sourceMap": true,
+        "target": "es2017",
+        "outDir": "./dist",
+        "baseUrl": "./lib",
+        "strict": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true
+    },
+    "include": [
+        "lib/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
