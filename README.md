@@ -25,4 +25,4 @@ http://localhost:1337/ (frontend)
 
 http://localhost:1337/admin (frontend admin)
 
-To debug code of ExpressJS add a breakpoint and presse F5 (Select Attach to Remote configuration)
+To debug code of ExpressJS add a breakpoint and press F5 (Select Attach to Remote configuration)
